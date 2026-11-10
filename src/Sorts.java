@@ -33,8 +33,10 @@ public class Sorts {
      * Use: less(a[i], a[i - 1], field)
      */
     public static boolean isSorted(Task[] a, String field) {
-        // TODO
-        return false;
+        for (int i = 1; i < a.length; i++){
+            if (less(a[i],a[i-1], field)) return false;
+        }
+        return true;
     }
 
     /**
@@ -46,6 +48,10 @@ public class Sorts {
      *   - Challenge: stop early if a whole pass makes no swaps.
      */
     public static void bubbleSort(Task[] a, String field) {
-        // TODO
+        while (!isSorted(a,field)) {
+            for (int i = 1; i < a.length; i++) {
+                if (less(a[i], a[i - 1], field)) exchange(a,i-1,i);
+            }
+        }
     }
 }
